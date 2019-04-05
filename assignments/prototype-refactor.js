@@ -61,26 +61,21 @@ class GameObject {
 
 class CharacterStats extends GameObject{
   constructor(characterStatsOptions){
-    super(this, characterStatsOptions);
+    super(characterStatsOptions);
     this.healthPoints = characterStatsOptions.healthPoints;
   }
-  CharacterStats = Object.create(GameObject.prototype);
-
   takeDamage () {
     return `${this.name} took damage.`;
   }
 }
 
 class Humanoid extends CharacterStats{
-  constructor(this, humanoidOptions){
+  constructor(humanoidOptions){
     super(humanoidOptions);
     this.team = humanoidOptions.team;
     this.weapons = humanoidOptions.weapons;
     this.language = humanoidOptions.language;
   }
-
-  prototype = Object.create(CharacterStats.prototype);
-
   greet () {
   return `${this.name} offers a greeting in ${this.language}.`;
   }
